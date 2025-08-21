@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "django-app.fullname" . }}-db
+  labels:
+    {{- include "django-app.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ include "django-app.fullname" . }}-db
+  template:
+    metadata:
+      labels:
+        app: {{ include "django-app.fullname" . }}-db
+    spec:
+      containers:
+        - name: postgres
+          image: "{{ .Values.db.image.repository }}:{{ .Values.db.image.tag }}"
+          imagePullPolicy: {{ .Values.db.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.db.port }}
+          envFrom:
+            - secretRef:
+                name: django-env

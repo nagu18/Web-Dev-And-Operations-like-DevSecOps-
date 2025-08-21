@@ -1,0 +1,51 @@
+# About Me & Skills
+
+My skills include Python, Django, Docker, Helm, Kubernetes, MicroK8s, CI/CD, PostgreSQL, cybersecurity, SOC, CCNA, and pentesting, focusing on integrating development and operations practices to enhance security and efficiency. I developed the Django app (Code-Valit).
+
+# Overview
+
+This guide provides steps to deploy a Django application using Helm on a Kubernetes cluster, emphasizing secure and streamlined operations.
+
+## Prerequisites
+
+Before deploying the Django app using Helm, ensure you have the following prerequisites installed:
+
+- Kubernetes cluster up and running (MicroK8s recommended)
+- Helm installed (version 3 or later)
+- kubectl configured to connect to your Kubernetes cluster
+
+## Installing Helm
+
+If Helm is not installed, follow these steps:
+
+For macOS (using Homebrew):
+```bash
+brew install helm
+```
+
+For Linux:
+```bash
+curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+```
+
+For Windows (using Chocolatey):
+```powershell
+choco install kubernetes-helm
+```
+
+Verify Helm installation:
+```bash
+helm version
+```
+
+## Deploying the Django App
+
+Run the following command to install the Django app using Helm:
+
+```bash
+helm install django-app
+```
+
+## Security Features
+
+This deployment approach integrates robust security practices, leveraging Kubernetes' native capabilities and Helm's configuration management to ensure a secure and compliant application environment.
