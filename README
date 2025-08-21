@@ -43,7 +43,7 @@ helm version
 Run the following command to install the Django app using Helm:
 
 ```bash
-helm install django-app
+helm install django-server django-app
 ```
 
 ## Security Features
